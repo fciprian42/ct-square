@@ -13,7 +13,9 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "acorn": "^6.1.1",
+    "autoprefixer": "^9.5.1",
     "normalize.css": "^8.0.1",
+    "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-animated-css": "^1.0.5",
