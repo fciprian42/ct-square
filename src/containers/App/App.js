@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Animated } from "react-animated-css"
 
 import ContactList from '../../components/ContactList'
 
@@ -26,7 +27,7 @@ class App extends PureComponent {
     render() {
         return (
             <div className={styles.center} style={{height: 'calc(100vh - 64px)'}}>
-                {this.state.contactList.length > 0 ? <ContactList contacts={this.state.contactList} /> : 'empty'}
+                {this.state.contactList.length > 0 ? <ContactList contacts={this.state.contactList} /> : <h3>Votre liste est vide</h3>}
             </div>
         )
     }

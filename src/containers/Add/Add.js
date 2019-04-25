@@ -57,7 +57,6 @@ class Add extends PureComponent {
                 <h1>
                     Ajouter un contact
                 </h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac pharetra dolor. Curabitur gravida, tortor at euismod semper, ipsum velit finibus urna, ut auctor urna erat at libero.</p>
                 <form onSubmit={this.handleSubmit} className={styles.form}>
                     <div>
                         <FormControl className={styles.inputText}>
