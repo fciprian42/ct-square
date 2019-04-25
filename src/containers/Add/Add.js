@@ -105,6 +105,9 @@ class Add extends PureComponent {
                             <TextField
                                 placeholder="Ajouter une note"
                                 multiline={true}
+                                id="notes"
+                                value={this.state.notes}
+                                onChange={this.handleChange}
                                 rows={7}
                                 rowsMax={10}
                             />
