@@ -1,6 +1,29 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const path = require('path')
+const autoprefixer = require('autoprefixer')
+
+const CSSModuleLoader = {
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    sourceMap: true,
+    localIdentName: '[local]__[hash:base64:5]',
+  }
+}
+
+const postCSSLoader = {
+  loader: 'postcss-loader',
+  options: {
+    ident: 'postcss',
+    sourceMap: true,
+    plugins: () => [
+      autoprefixer({
+        browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9']
+      })
+    ]
+  }
+}
 
 module.exports = {
   entry: {
@@ -22,27 +45,25 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-            {loader: 'style-loader'},
-            {loader: 'css-loader'},
-            {loader: 'sass-loader'}
-          ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'}
+          'style-loader',
+          CSSModuleLoader,
+          postCSSLoader,
+          'sass-loader',
         ]
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
         use: [
           {
             loader: 'file-loader',
             options: {},
           },
         ],
-      }
+      },
     ]
   },
   plugins: [
