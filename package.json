@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --config webpack.dev.js"
+    "start": "webpack-dev-server --config webpack.dev.js --hot"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "acorn": "^6.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-animated-css": "^1.0.5",
