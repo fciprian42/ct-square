@@ -1,11 +1,11 @@
 {
-  "name": "rbs",
+  "name": "ctsquare",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --config webpack.dev.js --hot"
+    "start": "webpack-dev-server --config webpack.prod.js --hot"
   },
   "keywords": [],
   "author": "",
