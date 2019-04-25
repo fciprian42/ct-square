@@ -13,7 +13,7 @@ const Navbar = ({}) => (
                     <FontAwesomeIcon icon={['fal', 'home']} />
                 </IconButton>
             </Link>
-            <Typography variant="h6" color="inherit">Gestionnaire de contacts</Typography>
+            <Typography variant="h6" color="inherit">Gestionnaire de contacts <FontAwesomeIcon icon={['fal', 'address-book']} /></Typography>
             <Link to='/add'>
                 <IconButton color='inherit'>
                     <FontAwesomeIcon icon={['fal', 'plus']} />

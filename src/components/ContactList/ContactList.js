@@ -3,17 +3,21 @@ import PropTypes from 'prop-types'
 import { Paper, Avatar, ListItemText, ListItem, List, Divider } from '@material-ui/core'
 
 import ContactProfile from '../ContactProfile'
+import SearchBar from '../SearchBar'
 
 class ContactList extends PureComponent {
     constructor(props) {
         super(props)
 
         this.state = {
+            searchResult: [],
             contactPreview: [],
+            searchText: '',
             showProfile: false
         }
 
         this.showContact = this.showContact.bind(this)
+        this.handleSearch = this.handleSearch.bind(this)
     }
 
     showContact(key) {
@@ -23,11 +27,27 @@ class ContactList extends PureComponent {
         })
     }
 
+    handleSearch(searchText) {
+        this.setState({searchResult: [], searchText: searchText})
+
+        this.props.contacts.map(contact => {
+            if (contact.firstname.toLowerCase().search(searchText.toLowerCase()) !== -1 || contact.lastname.toLowerCase().search(searchText.toLowerCase()) !== -1 || contact.phone.toString().search(searchText) !== -1 || contact.email.toLowerCase().search(searchText.toLowerCase()) !== -1) {
+                this.setState(prevState => ({
+                    searchResult: [...prevState.searchResult, contact]
+                }))
+            }
+        })
+    }
+
+    returnContactList() {
+        return this.state.searchText ? this.state.searchResult : this.props.contacts
+    }
+
     render() {
         return (<>
-            <h2>Vos contacts</h2>
-            {!this.state.showProfile && <Paper>
-                {this.props.contacts && this.props.contacts.length > 0 && this.props.contacts.map((contact, key) => {
+            {!this.state.showProfile && <SearchBar onSearch={this.handleSearch} />}
+            {!this.state.showProfile && <Paper style={{width: '95%', padding: 8}}>
+                {this.props.contacts && this.props.contacts.length > 0 && this.returnContactList().map((contact, key) => {
                     return (
                         <List className='contact-list' key={key}>
                             <ListItem button onClick={() => {this.showContact(key)}}>
@@ -41,7 +61,7 @@ class ContactList extends PureComponent {
                     )
                 })}
             </Paper>}
-            {this.state.showProfile && this.state.contactPreview.length > 0 && <ContactProfile data={this.state.contactPreview} />}
+            {this.state.showProfile && <ContactProfile data={this.state.contactPreview} />}
         </>)
     }
 }
