@@ -1,0 +1,9 @@
+/node_modules
+/packages
+/.idea
+
+
+.DS_Store
+.log
+.lock
+.tmp
