@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faPlus } from '@fortawesome/pro-light-svg-icons'
+import { faHome, faPlus, faAddressBook, faSearch } from '@fortawesome/pro-light-svg-icons'
 
 import Routes from './routes'
 
@@ -24,7 +24,7 @@ const theme = createMuiTheme({
 })
 
 // Load icon preset
-library.add(faHome, faPlus)
+library.add(faHome, faPlus, faAddressBook, faSearch)
 
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
