@@ -20,6 +20,7 @@ class ContactList extends PureComponent {
 
         this.showContact = this.showContact.bind(this)
         this.handleSearch = this.handleSearch.bind(this)
+        this.handleBack = this.handleBack.bind(this)
     }
 
     showContact(key) {
@@ -45,6 +46,12 @@ class ContactList extends PureComponent {
         return this.state.searchText ? this.state.searchResult : this.props.contacts
     }
 
+    handleBack() {
+        this.setState({
+            showProfile: false
+        })
+    }
+
     render() {
         return (<>
             {!this.state.showProfile && <SearchBar onSearch={this.handleSearch} />}
@@ -63,7 +70,7 @@ class ContactList extends PureComponent {
                     )
                 })}
             </Paper>}
-            {this.state.showProfile && <ContactProfile data={this.state.contactPreview} />}
+            {this.state.showProfile && <ContactProfile data={this.state.contactPreview} back={this.handleBack} />}
         </>)
     }
 }
