@@ -1,0 +1,32 @@
+h1 {
+    margin: 0!important
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputText {
+    width: 375px;
+    margin-right: 30px!important
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .notes {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .btnSubmit {
+        margin-top: 15px;
+        width: 100%;
+    }
+}

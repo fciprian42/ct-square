@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome } from '@fortawesome/pro-light-svg-icons'
+import { faHome, faPlus } from '@fortawesome/pro-light-svg-icons'
 
 import Routes from './routes'
 
@@ -9,7 +9,7 @@ import Routes from './routes'
 import 'normalize.css'
 
 // Load icon preset
-library.add(faHome)
+library.add(faHome, faPlus)
 
 ReactDOM.render(
   <Routes />,

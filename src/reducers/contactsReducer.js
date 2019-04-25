@@ -5,10 +5,9 @@ const initialState = {
 };
 
 function contactsReducer(state = initialState, action) {
-    console.log(action)
     switch (action.type) {
         case contactsConstants.ADD_CONTACT:
-            return {contacts: action.contacts}
+            return {contacts: state.contacts.concat(action.data)}
             break;
         default:
           return state;
