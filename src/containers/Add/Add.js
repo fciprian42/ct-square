@@ -10,6 +10,7 @@ class Add extends PureComponent {
         super(props)
 
         this.state = {
+            id: '',
             firstname: '',
             lastname: '',
             phone: '',
@@ -19,6 +20,16 @@ class Add extends PureComponent {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentWillMount() {
+        const min = 1;
+        const max = 99999999;
+        const rand = min + Math.random() * (max - min);
+        
+        this.setState({
+            id: rand.toFixed(0)
+        })
     }
 
     handleChange(event) {
@@ -56,7 +67,6 @@ class Add extends PureComponent {
                                 onChange={this.handleChange}
                                 label="Nom"
                                 type='text'
-                                className='colorTheme'
                                 margin="normal"
                                 required
                             />
@@ -68,7 +78,6 @@ class Add extends PureComponent {
                                 onChange={this.handleChange}
                                 label="Prénom"
                                 type='text'
-                                className='colorTheme'
                                 margin="normal"
                                 required
                             />
@@ -82,7 +91,6 @@ class Add extends PureComponent {
                                 onChange={this.handleChange}
                                 label="Numéro de téléphone"
                                 type='text'
-                                className='colorTheme'
                                 margin="normal"
                                 required
                             />
@@ -94,7 +102,6 @@ class Add extends PureComponent {
                                 onChange={this.handleChange}
                                 label="Adresse e-mail"
                                 type='email'
-                                className='colorTheme'
                                 margin="normal"
                                 required
                             />
@@ -110,6 +117,7 @@ class Add extends PureComponent {
                                 onChange={this.handleChange}
                                 rows={7}
                                 rowsMax={10}
+                                required
                             />
                         </FormControl>
                     </div>
