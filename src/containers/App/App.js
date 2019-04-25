@@ -15,8 +15,16 @@ class App extends PureComponent {
         }
     }
 
+    static getDerivedStateFromProps(nextProps, nextState) {
+        const { contacts } = nextProps;
+
+        return {
+            contactList: contacts.contacts
+        }
+    }
+
     render() {
-        console.log(this.props)
+        console.log(this.state)
         return (
             <div className={styles.center} style={{height: 'calc(100vh - 64px)'}}>
                 {this.state.contactList.length > 0 ? <ContactList contacts={this.state.contactList} /> : 'empty'}
