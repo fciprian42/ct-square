@@ -1,4 +1,4 @@
 export const contactsConstants = {
-    GET_CONTACTS: 'GET_CONTACTS',
+    EDIT_CONTACT: 'EDIT_CONTACT',
     ADD_CONTACT: 'ADD_CONTACT'
   };
