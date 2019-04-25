@@ -9,7 +9,7 @@ import storage from 'redux-persist/lib/storage'
 import contactsReducer from './reducers/contactsReducer'
 
 const history = createBrowserHistory()
-const routes = {home: '/', add: '/add', contact: '/contact/id'};
+const routes = {home: '/', add: '/add'};
 
 const { reducer, middleware } = connectRoutes(history, routes);
 
@@ -24,6 +24,10 @@ const store = createStore(
   compose(applyMiddleware(thunk, middleware))
 );
 
-export const persistor = persistStore(store)
 
-export default store;
+let persistor = persistStore(store)
+
+export const myStore = {
+  persistor,
+  store
+}
