@@ -5,6 +5,8 @@ import { Paper, Avatar, ListItemText, ListItem, List, Divider } from '@material-
 import ContactProfile from '../ContactProfile'
 import SearchBar from '../SearchBar'
 
+import styles from './ContactList.scss'
+
 class ContactList extends PureComponent {
     constructor(props) {
         super(props)
@@ -51,7 +53,7 @@ class ContactList extends PureComponent {
                     return (
                         <List className='contact-list' key={key}>
                             <ListItem button onClick={() => {this.showContact(key)}}>
-                                <Avatar className='AvatarContact'>
+                                <Avatar className={styles.avatarContact}>
                                     {contact.firstname.charAt(0)}
                                 </Avatar>
                                 <ListItemText primary={contact.firstname + ' ' + contact.lastname} secondary={contact.notes} />
